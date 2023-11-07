@@ -1,0 +1,25 @@
+# This is a generated file. Not intended for manual editing.
+version: "3.9"
+services:
+  web:
+    build:
+      context: "/home/ns/Desktop/WebApp/Web"
+      dockerfile: "Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net6.0/Web.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_STATICWEBASSETS: "/app/bin/Debug/net6.0/Web.staticwebassets.runtime.CT.json"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+      NUGET_PACKAGES: "/home/ns/.nuget/packages"
+      NUGET_FALLBACK_PACKAGES: "/home/ns/.nuget/packages"
+    image: "web:dev"
+    ports: []
+    volumes:
+    - "/home/ns/.nuget/packages:/root/.nuget/fallbackpackages"
+    - "/home/ns/Desktop/WebApp/Web:/app:rw"
+    - "/home/ns/Desktop/WebApp:/src:rw"
+    working_dir: "/app"
